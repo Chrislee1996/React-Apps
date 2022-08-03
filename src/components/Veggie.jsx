@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Veggie() {
+const Veggie = () => {
   return (
     <div>Veggie</div>
   )
