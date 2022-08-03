@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react'
+import styled from "styled-components"
 import env from 'react-dotenv'
+import {} from '@splidejs/react-splide'
 
 const Popular = () => {
     const [popular, setPopular] = useState([])
@@ -18,17 +20,34 @@ const Popular = () => {
 
   return (
     <div>
-        Popular
-        {popular.map((recipe) => {
             return (
-                <div>
-                    <p>{recipe.title}</p>
-                </div>
-            )
-        })}
-
+                <Wrapper>
+                    <h2> Some Picks </h2>
+                    {popular.map((recipe) =>{
+                        return (
+                            <Card>
+                                <p>{recipe.title}</p>
+                                <img src ={recipe.image} alt ={recipe.title} />
+                            </Card>
+                        )
+                    })}
+                </Wrapper>
     </div>
   )
 }
+
+const Wrapper = styled.div`
+    margin: 4rem 0rem
+`
+const Card = styled.div`
+    min-height: 25rem
+    border-radius: 2rem
+    overflow:hidden
+
+    img {
+        border-radius:2rem
+    }
+`
+
 
 export default Popular
