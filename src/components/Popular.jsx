@@ -18,7 +18,7 @@ const Popular = () => {
         if(check) {
             setPopular(JSON.parse(check))
         } else {
-            const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=15`)
+            const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10`)
             const data = await api.json()
             localStorage.setItem("popular", JSON.stringify(data.recipes))
             setPopular(data.recipes) 
@@ -32,14 +32,17 @@ const Popular = () => {
                 <Wrapper>
                     <h2 > Some Picks </h2>
                     <Splide options={{
-                        perPage:4
+                        perPage:2,
+                        gap:'5rem',
+                        drag:'free',
+                        pagination:false,
                     }}>
                         {popular.map((recipe) =>{
                             return (
                                 <SplideSlide key={recipe.id}>
                                 <Card>
                                     <p>{recipe.title}</p>
-                                    <img src ={recipe.image} alt ={recipe.title} />
+                                    <img src ={recipe.image} alt={recipe.title} />
                                     <Gradient/>
                                 </Card>
                                 </SplideSlide>
@@ -53,7 +56,7 @@ const Popular = () => {
 
 const Wrapper = styled.div`
     margin: 4rem 0rem;
-    text:center;
+
 `;
 const Card = styled.div`
     min-height: 25rem;

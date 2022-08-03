@@ -32,7 +32,10 @@ const Veggie = () => {
     <Wrapper>
         <h2 > Some Vegetarian Options </h2>
         <Splide options={{
-            perPage:4
+            perPage:2,
+            gap:'5rem',
+            drag:'free',
+            pagination:false,
         }}>
             {veggie.map((recipe) =>{
                 return (
