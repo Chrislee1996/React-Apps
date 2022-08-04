@@ -6,7 +6,7 @@ import {useEffect, useState} from 'react'
 import env from 'react-dotenv'
 
 
-function Cuisine() {
+const Cuisine = () => {
 
   const [cuisine, setCuisine] = useState([])
   let params = useParams()
