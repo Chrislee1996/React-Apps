@@ -12,6 +12,7 @@ const Recipe = () => {
     const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
     const detailData = await data.json()
     setDetails(detailData)
+    // console.log(detailData.extendedIngredients)
   }
 
   useEffect(()=> {
@@ -22,11 +23,6 @@ const Recipe = () => {
   return (
     <div>
     <h3>{details.title}</h3>
-    <ul>
-      {details.extendedIngredients.map((ingredient) =>(
-        <li key={ingredient.id}>{ingredient.original}</li>
-      ))}
-    </ul>
 
     <img src ={details.image} alt ={details.title} />
       <hr/>
