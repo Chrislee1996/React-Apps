@@ -20,9 +20,27 @@ const Recipe = () => {
 
 
   return (
-    <div>{details.title}
+    <div>
+    <h3>{details.title}</h3>
+    <ul>
+      {details.extendedIngredients.map((ingredient) =>(
+        <li key={ingredient.id}>{ingredient.original}</li>
+      ))}
+    </ul>
+
     <img src ={details.image} alt ={details.title} />
-    <h3>{details.instructions}</h3>
+      <hr/>
+
+      <div>
+        <h2>Instructions</h2>
+        <h3 dangerouslySetInnerHTML={{__html:details.instructions}}></h3>
+      </div>
+
+      <div>
+        <h2>Recipe Summary</h2>
+        <h3 dangerouslySetInnerHTML={{__html:details.summary}}></h3>
+      </div>
+
     </div>
   )
 }
