@@ -3,40 +3,41 @@ import {GiNoodles, GiChopsticks} from 'react-icons/gi'
 import styled from "styled-components"
 import {NavLink} from 'react-router-dom'
 
-import React from 'react'
 
 const Category = () => {
   return (
-    <div>
-        {/* <NavLink to ={'/cuisine/Italian'}>  */}
-        <div>
+    <List>
+        <NavLink to ={'/cuisine/Italian'}> 
         <FaPizzaSlice/> 
         <h3> Italian </h3>
-        {/* </NavLink> */}
+        </NavLink>
 
 
-        {/* <NavLink to ={'/cuisine/American'}>  */}
-
+        <NavLink to ={'/cuisine/American'}> 
         <FaHamburger/>
         <h3> American </h3>
-        {/* </NavLink> */}
+        </NavLink>
 
 
-        {/* <NavLink to ={'/cuisine/Thai'}>  */}
-
+        <NavLink to ={'/cuisine/Thai'}> 
         <GiNoodles/> 
         <h3> Thai </h3>
-        {/* </NavLink> */}
+        </NavLink>
 
 
-        {/* <NavLink to ={'/cuisine/Chinese'}>  */}
+        <NavLink to ={'/cuisine/Chinese'}> 
         <GiChopsticks/> 
         <h3> Chinese </h3>
-        {/* </NavLink> */}
-        </div>
+        </NavLink>
 
-    </div>
+    </List>
   )
 }
+
+const List = styled.div`
+    display:flex;
+    justify-content:center;
+    margin:2rem 0rem;
+`
 
 export default Category
